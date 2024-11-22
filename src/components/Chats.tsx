@@ -34,14 +34,22 @@ export default function Chats() {
 				?.sort((a, b) => b[1].date - a[1].date)
 				.map((chat) => (
 					<div
-						className="userChat"
 						key={chat[0]}
 						onClick={() => handleSelect(chat[1].userInfo)}
+						className="flex items-center text-white cursor-pointer hover:bg-[#1d1c1c] gap-3 px-3 py-2 transition-all"
 					>
-						<img src={chat[1].userInfo.photoURL} alt="" />
-						<div className="userChatInfo">
-							<span>{chat[1].userInfo.displayName}</span>
-							<p>{chat[1].lastMessage?.text}</p>
+						<img
+							src={chat[1].userInfo.photoURL}
+							alt="img"
+							className="w-[40px] h-[40px] rounded-full object-cover"
+						/>
+						<div>
+							<span className="font-medium">
+								{chat[1].userInfo.displayName}
+							</span>
+							<p className="text-[lightgray] text-[14px]">
+								{chat[1].lastMessage?.text}
+							</p>
 						</div>
 					</div>
 				))}

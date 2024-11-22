@@ -93,14 +93,17 @@ export default function Search() {
 			</div>
 			{error && <span>User not found!</span>}
 			{user && (
-				<div className="userChat" onClick={handleSelect}>
+				<div
+					onClick={handleSelect}
+					className="flex items-center text-white cursor-pointer hover:bg-[#1d1c1c] gap-2 px-3 py-2 transition-all"
+				>
 					<img
 						src={user.photoURL}
 						alt="profile img"
-						className="w-[40px] h-[40px]"
+						className="w-[40px] h-[40px] rounded-full object-cover"
 					/>
-					<div className="userChatInfo">
-						<span>{user.displayName}</span>
+					<div>
+						<span className="font-medium text-[18px]">{user.displayName}</span>
 					</div>
 				</div>
 			)}

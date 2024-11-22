@@ -74,16 +74,17 @@ export default function Input() {
 	};
 
 	return (
-		<div className="input">
+		<div className="h-[60px] bg-[#222121] p-3 flex input">
 			<input
 				type="text"
-				placeholder="Type something..."
 				value={text}
+				placeholder="Type something..."
 				onChange={(e) => setText(e.target.value)}
+				className="w-full border-none outline-none bg-transparent text-[lightgray] placeholder:text-[lightgray]"
 			/>
 
-			<div className="send">
-				<img src={Attach} alt="attach img" />
+			<div className="flex items-center gap-3 cursor-pointer">
+				<img src={Attach} alt="attach img" className="w-[40px] h-[24px]" />
 				<input
 					type="file"
 					id="file"
@@ -91,9 +92,14 @@ export default function Input() {
 					onChange={(e) => setImg(e.target.files[0])}
 				/>
 				<label htmlFor="file">
-					<img src={Img} alt="img" />
+					<img src={Img} alt="img" className="w-[40px] h-[24px]" />
 				</label>
-				<button onClick={handleSend}>Send</button>
+				<button
+					onClick={handleSend}
+					className="border-none py-[2px] px-3 rounded-md bg-[#0E5FC2]"
+				>
+					Send
+				</button>
 			</div>
 		</div>
 	);

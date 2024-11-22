@@ -48,7 +48,9 @@ export default function Login() {
 					<button className="p-2 rounded-md text-[#252323] bg-[#ccc] hover:bg-[#b3b2b2] transition-all">
 						Sign in
 					</button>
-					{error && <span className="text-red-500">Something went wrong!</span>}
+					{error && (
+						<span className="text-red-500">Invalid email or password !</span>
+					)}
 				</form>
 				<p className="mt-3">
 					You dont have an account ? <Link to="/register">Register</Link>

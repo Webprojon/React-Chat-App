@@ -2,7 +2,6 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import "./style.scss";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import PropTypes from "prop-types"; // Import PropTypes
