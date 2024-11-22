@@ -1,0 +1,29 @@
+{
+	"name": "Online Chat",
+	"short_name": "Online Chat",
+	"description": "React Chat App",
+	"icons": [
+		{
+			"src": "maskable.png",
+			"sizes": "196x196",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "logo192x129.png",
+			"sizes": "192x129",
+			"type": "image/png"
+		},
+		{
+			"src": "logo512x343.png",
+			"sizes": "512x343",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#161515",
+	"background_color": "#161515",
+	"display": "standalone",
+	"scope": "/",
+	"start_url": "/",
+	"orientation": "portrait"
+}
