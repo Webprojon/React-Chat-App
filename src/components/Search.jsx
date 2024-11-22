@@ -80,20 +80,25 @@ export default function Search() {
 	};
 
 	return (
-		<div className="search">
-			<div className="searchForm">
+		<div className="border-b border-gray-300">
+			<div className="p-3">
 				<input
 					type="text"
 					value={userName}
 					placeholder="Find a user"
 					onKeyDown={handleKey}
 					onChange={(e) => setUserName(e.target.value)}
+					className="outline-none text-[lightgray] placeholder:text-[lightgray] bg-transparent"
 				/>
 			</div>
 			{error && <span>User not found!</span>}
 			{user && (
 				<div className="userChat" onClick={handleSelect}>
-					<img src={user.photoURL} alt="profile img" />
+					<img
+						src={user.photoURL}
+						alt="profile img"
+						className="w-[40px] h-[40px]"
+					/>
 					<div className="userChatInfo">
 						<span>{user.displayName}</span>
 					</div>

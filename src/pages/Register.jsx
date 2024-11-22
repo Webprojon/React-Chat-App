@@ -7,7 +7,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
-	const [error, setError] = useState(null);
+	const [error, setError] = useState(false);
 	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
@@ -30,7 +30,9 @@ export default function Register() {
 
 			uploadTask.on(
 				(error) => {
-					setError(error.message);
+					if (error) {
+						setError(true);
+					}
 				},
 				() => {
 					getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -53,28 +55,55 @@ export default function Register() {
 				},
 			);
 		} catch (err) {
-			setError(err.message);
+			if (err) {
+				setError(true);
+			}
 		}
 	};
 
 	return (
-		<div className="formContainer">
-			<div className="formWrapper">
-				<span className="logo">React Chat App</span>
-				<span className="title">Register</span>
-				<form onSubmit={handleSubmit}>
-					<input type="text" placeholder="Enter name" />
-					<input type="email" placeholder="Enter email" />
-					<input type="password" placeholder="Enter password" />
-					<input style={{ display: "none" }} type="file" id="file" />
-					<label htmlFor="file">
-						<img src={Add} alt="add avatar img" />
+		<div className="flex justify-center items-center h-[100vh] bg-[#d8d8d8]">
+			<div className="w-[420px] rounded-[8px] flex flex-col items-center text-[lightgray] bg-[#1d1c1c] px-[50px] py-[10px]">
+				<span className="text-[24px] font-medium">React Chat App</span>
+				<span className="mb-2">Register</span>
+				<form
+					className="flex flex-col w-full space-y-4"
+					onSubmit={handleSubmit}
+				>
+					<input
+						type="text"
+						placeholder="Enter name"
+						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+					/>
+					<input
+						type="email"
+						placeholder="Enter email"
+						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+					/>
+					<input
+						type="password"
+						placeholder="Enter password"
+						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+					/>
+					<input
+						style={{ display: "none" }}
+						type="file"
+						id="file"
+						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+					/>
+					<label
+						htmlFor="file"
+						className="flex items-center cursor-pointer space-x-3"
+					>
+						<img src={Add} alt="add avatar img" className="w-[34px]" />
 						<span>Add an avatar</span>
 					</label>
-					<button>Sign up</button>
-					{error && <span>Something went wrong: {error}</span>}
+					<button className="p-2 rounded-md text-[#252323] bg-[#ccc] hover:bg-[#b3b2b2] transition-all">
+						Sign up
+					</button>
+					{error && <span className="text-red-500">Something went wrong</span>}
 				</form>
-				<p>
+				<p className="mt-3">
 					You do have an account ? <Link to="/login">Login</Link>
 				</p>
 			</div>
