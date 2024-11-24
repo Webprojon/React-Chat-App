@@ -8,7 +8,7 @@ export default function Navbar() {
 
 	return (
 		<div className="h-[60px] flex items-center justify-between p-3 bg-[#141313]">
-			<div className="flex items-center gap-2">
+			<div className="flex items-center gap-3">
 				<img
 					src={currentUser.photoURL}
 					alt="profile img"

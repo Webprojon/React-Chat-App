@@ -25,34 +25,34 @@ export default function Login() {
 
 	return (
 		<div className="flex justify-center items-center h-[100vh] bg-[#d8d8d8]">
-			<div className="w-[420px] rounded-[8px] flex flex-col items-center text-[lightgray] bg-[#1d1c1c] px-[50px] py-[10px]">
+			<div className="w-[92%] lg:w-[420px] rounded-[8px] flex flex-col items-center text-[lightgray] bg-[#1d1c1c] px-5 md:px-[50px] py-[10px]">
 				<span className="text-[24px] font-medium">React Chat App</span>
 				<span className="mb-2">Login</span>
 				<form
 					onSubmit={handleSubmit}
-					className="flex flex-col w-full space-y-4"
+					className="flex flex-col w-full space-y-5 md:space-y-4"
 				>
 					<input
 						type="email"
 						required
 						placeholder="Enter email"
-						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+						className="py-3 sm:py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
 					/>
 					<input
 						type="password"
 						required
 						placeholder="Enter password"
-						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+						className="py-3 sm:py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
 					/>
 
-					<button className="p-2 rounded-md text-[#252323] bg-[#ccc] hover:bg-[#b3b2b2] transition-all">
+					<button className="py-3 sm:py-2 p-2 rounded-md text-[#252323] bg-[#ccc] hover:bg-[#b3b2b2] transition-all">
 						Sign in
 					</button>
 					{error && (
 						<span className="text-red-500">Invalid email or password !</span>
 					)}
 				</form>
-				<p className="mt-3">
+				<p className="mt-4">
 					You dont have an account ? <Link to="/register">Register</Link>
 				</p>
 			</div>

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.chat {
-	flex: 2;
-}
-
 .messages {
 	padding: 10px;
 	height: calc(100% - 120px);

@@ -1,4 +1,3 @@
-import Img from "../images/img.png";
 import Attach from "../images/attach.png";
 import { ChatContext } from "../context/ChatContext";
 import { AuthContext } from "../context/AuthContext";
@@ -13,6 +12,7 @@ import {
 import { db, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { IoSendSharp } from "react-icons/io5";
 
 export default function Input() {
 	const [text, setText] = useState("");
@@ -74,7 +74,7 @@ export default function Input() {
 	};
 
 	return (
-		<div className="h-[60px] bg-[#222121] p-3 flex input">
+		<div className="h-[60px] bg-[#222121] p-4 flex input">
 			<input
 				type="text"
 				value={text}
@@ -84,7 +84,6 @@ export default function Input() {
 			/>
 
 			<div className="flex items-center gap-3 cursor-pointer">
-				<img src={Attach} alt="attach img" className="w-[40px] h-[24px]" />
 				<input
 					type="file"
 					id="file"
@@ -92,14 +91,12 @@ export default function Input() {
 					onChange={(e) => setImg(e.target.files[0])}
 				/>
 				<label htmlFor="file">
-					<img src={Img} alt="img" className="w-[40px] h-[24px]" />
+					<img src={Attach} alt="attach img" className="w-[39px] h-[25px]" />
 				</label>
-				<button
+				<IoSendSharp
 					onClick={handleSend}
-					className="border-none py-[2px] px-3 rounded-md bg-[#0E5FC2]"
-				>
-					Send
-				</button>
+					className="size-8 text-[#2f77cf] hover:-translate-x-1 active:translate-x-1 transition-all"
+				/>
 			</div>
 		</div>
 	);

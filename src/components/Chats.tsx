@@ -8,7 +8,7 @@ export default function Chats() {
 	const [chats, setChats] = useState<Record<string, any>>({});
 
 	const { currentUser } = useContext(AuthContext);
-	const { dispatch } = useContext(ChatContext);
+	const { dispatch, setIsOpen, isOpen } = useContext(ChatContext);
 
 	useEffect(() => {
 		const getChats = () => {
@@ -26,6 +26,8 @@ export default function Chats() {
 
 	const handleSelect = (u) => {
 		dispatch({ type: "CHANGE_USER", payload: u });
+
+		setIsOpen(!isOpen);
 	};
 
 	return (

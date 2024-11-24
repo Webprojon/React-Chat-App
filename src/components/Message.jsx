@@ -16,7 +16,7 @@ export default function Message({ message }) {
 	return (
 		<div
 			ref={ref}
-			className={`message flex gap-4 ${
+			className={`message flex gap-3 md:gap-4 ${
 				message.senderId === currentUser.uid && "owner flex-row-reverse"
 			}`}
 		>
@@ -30,15 +30,19 @@ export default function Message({ message }) {
 					alt="img"
 					className="w-[40px] h-[40px] rounded-full object-cover"
 				/>
-				<span>just now</span>
+				<span className="text-[13px] md:text-md">just now</span>
 			</div>
 
 			<div className="messageContent flex flex-col max-w-[80%] gap-3">
-				<p className="mt-8 px-4 py-1 text-[15px] text-[#302e2e] bg-[#d8d8d8] max-w-max rounded-[0px_6px_6px_6px]">
+				<p className="mt-8 px-2 md:px-4 py-1 text-[15px] text-[#302e2e] bg-[#d8d8d8] max-w-max rounded-[0px_6px_6px_6px]">
 					{message.text}
 				</p>
 				{message.img && (
-					<img src={message.img} alt="img" className="w-[44%] rounded-md" />
+					<img
+						src={message.img}
+						alt="img"
+						className="w-[32%] md:w-[44%] rounded-md"
+					/>
 				)}
 			</div>
 		</div>

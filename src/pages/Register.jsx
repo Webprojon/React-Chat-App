@@ -63,33 +63,33 @@ export default function Register() {
 
 	return (
 		<div className="flex justify-center items-center h-[100vh] bg-[#d8d8d8]">
-			<div className="w-[420px] rounded-[8px] flex flex-col items-center text-[lightgray] bg-[#1d1c1c] px-[50px] py-[10px]">
+			<div className="w-[92%] lg:w-[420px] rounded-[8px] flex flex-col items-center text-[lightgray] bg-[#1d1c1c] px-5 md:px-[50px] py-[10px]">
 				<span className="text-[24px] font-medium">React Chat App</span>
 				<span className="mb-2">Register</span>
 				<form
-					className="flex flex-col w-full space-y-4"
+					className="flex flex-col w-full space-y-5 md:space-y-4"
 					onSubmit={handleSubmit}
 				>
 					<input
 						type="text"
 						placeholder="Enter name"
-						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+						className="py-3 sm:py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
 					/>
 					<input
 						type="email"
 						placeholder="Enter email"
-						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+						className="py-3 sm:py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
 					/>
 					<input
 						type="password"
 						placeholder="Enter password"
-						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+						className="py-3 sm:py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
 					/>
 					<input
 						style={{ display: "none" }}
 						type="file"
 						id="file"
-						className="py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
+						className="py-3 sm:py-2 px-3 rounded-md outline-none text-[lightgray] placeholder:text-[lightgray] bg-[#302e2e]"
 					/>
 					<label
 						htmlFor="file"
@@ -98,12 +98,12 @@ export default function Register() {
 						<img src={Add} alt="add avatar img" className="w-[34px]" />
 						<span>Add an avatar</span>
 					</label>
-					<button className="p-2 rounded-md text-[#252323] bg-[#ccc] hover:bg-[#b3b2b2] transition-all">
+					<button className="py-3 sm:py-2 p-2 rounded-md text-[#252323] bg-[#ccc] hover:bg-[#b3b2b2] transition-all">
 						Sign up
 					</button>
 					{error && <span className="text-red-500">Something went wrong</span>}
 				</form>
-				<p className="mt-3">
+				<p className="mt-4">
 					You do have an account ? <Link to="/login">Login</Link>
 				</p>
 			</div>
