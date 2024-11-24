@@ -43,10 +43,10 @@ export default function Chats() {
 						<img
 							src={chat[1].userInfo.photoURL}
 							alt="img"
-							className="w-[40px] h-[40px] rounded-full object-cover"
+							className="w-[45px] h-[45px] md:w-[40px] md:h-[40px] rounded-full object-cover"
 						/>
 						<div>
-							<span className="font-medium">
+							<span className="font-semibold tracking-wide">
 								{chat[1].userInfo.displayName}
 							</span>
 							<p className="text-[lightgray] text-[14px]">

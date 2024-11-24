@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import {
 	collection,
 	query,
@@ -20,28 +20,37 @@ export default function Search() {
 
 	const { currentUser } = useContext(AuthContext);
 
-	const handleSearch = async () => {
-		const q = query(
-			collection(db, "users"),
-			where("displayName", "==", userName),
-		);
+	useEffect(() => {
+		const fetchUser = async () => {
+			if (!userName.trim()) {
+				setUser(null);
+				setError(null);
+				return;
+			}
 
-		try {
-			const querySnapshot = await getDocs(q);
-			querySnapshot.forEach((doc) => {
-				setUser(doc.data());
-			});
-		} catch (err) {
-			setError(err.message);
-		}
-	};
+			const q = query(
+				collection(db, "users"),
+				where("displayName", "==", userName),
+			);
+			try {
+				const querySnapshot = await getDocs(q);
+				if (querySnapshot.empty) {
+					setError("User not found!");
+					setUser(null);
+				} else {
+					querySnapshot.forEach((doc) => setUser(doc.data()));
+				}
+			} catch (err) {
+				setError(err.message);
+			}
+		};
 
-	const handleKey = (e) => {
-		e.code === "Enter" && handleSearch();
-	};
+		const debounce = setTimeout(fetchUser, 500);
+		return () => clearTimeout(debounce);
+	}, [userName]);
 
 	const handleSelect = async () => {
-		console.log(user);
+		if (!user || !currentUser) return;
 		const combinedId =
 			currentUser.uid > user.uid
 				? currentUser.uid + user.uid
@@ -86,12 +95,11 @@ export default function Search() {
 					type="text"
 					value={userName}
 					placeholder="Find a user"
-					onKeyDown={handleKey}
 					onChange={(e) => setUserName(e.target.value)}
 					className="outline-none text-[lightgray] placeholder:text-[lightgray] bg-transparent"
 				/>
 			</div>
-			{error && <span>User not found!</span>}
+			{error && <span className="text-red-500">{error}</span>}
 			{user && (
 				<div
 					onClick={handleSelect}

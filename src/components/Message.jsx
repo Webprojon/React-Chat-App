@@ -30,7 +30,7 @@ export default function Message({ message }) {
 					alt="img"
 					className="w-[40px] h-[40px] rounded-full object-cover"
 				/>
-				<span className="text-[13px] md:text-md">just now</span>
+				<span className="text-[13px] md:text-[16px]">just now</span>
 			</div>
 
 			<div className="messageContent flex flex-col max-w-[80%] gap-3">
